@@ -53,6 +53,7 @@ typedef NSUInteger CDVMediaType;
 @property (assign) BOOL allowsEditing;
 @property (assign) BOOL correctOrientation;
 @property (assign) BOOL saveToPhotoAlbum;
+@property (assign) BOOL animatedUI;
 @property (strong) NSDictionary* popoverOptions;
 @property (assign) UIImagePickerControllerCameraDevice cameraDirection;
 
