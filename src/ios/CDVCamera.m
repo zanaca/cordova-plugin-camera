@@ -81,7 +81,6 @@ static NSString* toBase64(NSData* data) {
     pictureOptions.saveToPhotoAlbum = [[command argumentAtIndex:9 withDefault:@(NO)] boolValue];
     pictureOptions.popoverOptions = [command argumentAtIndex:10 withDefault:nil];
     pictureOptions.cameraDirection = [[command argumentAtIndex:11 withDefault:@(UIImagePickerControllerCameraDeviceRear)] unsignedIntegerValue];
-    pictureOptions.animatedUI = [[command argumentAtIndex:12 withDefault:@(YES)] boolValue];
 
     pictureOptions.popoverSupported = NO;
     pictureOptions.usesGeolocation = NO;
@@ -207,7 +206,7 @@ static NSString* toBase64(NSData* data) {
                 [weakSelf displayPopover:pictureOptions.popoverOptions];
                 weakSelf.hasPendingOperation = NO;
             } else {
-                [weakSelf.viewController presentViewController:cameraPicker animated:YES completion:^{
+                [weakSelf.viewController presentViewController:cameraPicker animated:NO completion:^{
                     weakSelf.hasPendingOperation = NO;
                 }];
             }
@@ -571,7 +570,7 @@ static NSString* toBase64(NSData* data) {
         weakSelf.pickerController = nil;
     };
 
-    [[cameraPicker presentingViewController] dismissViewControllerAnimated:YES completion:invoke];
+    [[cameraPicker presentingViewController] dismissViewControllerAnimated:NO completion:invoke];
 }
 
 - (CLLocationManager*)locationManager
